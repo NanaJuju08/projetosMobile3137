@@ -27,7 +27,7 @@ export default function Feed2() {
                 <Image style={styles.img} source={{uri: 'https://i.pinimg.com/736x/ad/b2/98/adb298a6bf0bd42efb78e59d0abb9310.jpg'}} />
                 </View>
                 <View style={styles.btn}>
-                    <Button title= "SAIBA MAIS" color='#EC7FA9' onPress={() => navigation.navigate("Home")}/>
+                    <Button title= "SAIBA MAIS" color='#EC7FA9'/>
                 </View>
             </ImageBackground>
         </View>  

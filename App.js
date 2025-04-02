@@ -10,16 +10,13 @@ import Feed2 from './screens/feed02';
 
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 
-export default function Bottomtabs() {
 
-  const Tabs = createBottomTabNavigator({
+function BottomTabs() {
 
-  })
+  const Tabs = createBottomTabNavigator();
+
   return (
-
-    <NavigationContainer>
-      <Tabs.Navigator
-      initialRouteName='Login'
+    <Tabs.Navigator
       screenOptions={{
         tabBarActiveTintColor: "#ffff",
         tabBarActiveBackgroundColor: "#FF748B",
@@ -31,12 +28,7 @@ export default function Bottomtabs() {
         headerTintColor: '#ffff',
         //headerTitleAlign: 'center'
       }}>
-        <Tabs.Screen name="Login" component={Login} options={{
-          tabBarIcon: () => (
-            <MaterialIcons name="login" size={25} color="#A7D477" />
-          )
-        }}/>
-
+        
         <Tabs.Screen name="Home" component={Home} options={{
           tabBarIcon: () => (
             <MaterialIcons name="home" size={25} color="#A7D477" />
@@ -56,6 +48,19 @@ export default function Bottomtabs() {
           )
         }}/>
       </Tabs.Navigator>
+  )
+}
+export default function App() {
+
+  const Stack = createStackNavigator();
+
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name='Login' component={Login}/>
+        <Stack.Screen options={{headerShown: false}} name='HomeTab' component={BottomTabs}/>
+
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }

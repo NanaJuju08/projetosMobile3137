@@ -19,7 +19,7 @@ export default function Login({navigation}) {
                     </TextInput>
                 </View>
                 <View style={styles.btn}>
-                    <Button title= "START" color='#EC7FA9' onPress={() => navigation.navigate("Home")}/>
+                    <Button title= "START" color='#EC7FA9' onPress={() => navigation.navigate("HomeTab")}/>
                 </View>
                 <View style ={styles.vazio}>
 
