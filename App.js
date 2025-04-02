@@ -7,6 +7,7 @@ import Login from './screens/login';
 import Home from './screens/home';
 import Feed from './screens/feed';
 import Feed2 from './screens/feed02';
+import Counter from './screens/counter';
 
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 
@@ -45,6 +46,12 @@ function BottomTabs() {
         <Tabs.Screen name="Minho" component={Feed2} options={{
           tabBarIcon: () => (
             <MaterialIcons name="feed" size={25} color="#A7D477" />
+          )
+        }}/>
+
+        <Tabs.Screen name="Counter" component={Counter} options={{
+          tabBarIcon: () => (
+            <MaterialIcons name="123" size={25} color="#A7D477" />
           )
         }}/>
       </Tabs.Navigator>
