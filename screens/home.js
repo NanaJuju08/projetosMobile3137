@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     },
 
     texto: {
-        color: '#E05388',
+        color: '#BE5985',
         fontSize: 35,
         fontWeight: 'bold'
     },
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     },
 
     texto2: {
-        color: '#E05388',
+        color: '#BE5985',
         fontSize: 25,
         fontWeight: 'bold'
     },
@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     },
 
     texto3: {
-        color: '#E05388',
+        color: '#BE5985',
         fontSize: 20,
         fontWeight: 'bold'
     },
@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
     },
 
     creditos: {
-        color: '#E05388',
+        color: '#BE5985',
         fontSize: 25,
         fontWeight: 'bold'
     },
@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
     img: {
         width: 180,
         height: 180,
-        borderColor: '#E05388',
+        borderColor: '#EC7FA9',
         borderWidth: 5,
         borderRadius: 10
     }

@@ -19,7 +19,7 @@ export default function Login({navigation}) {
                     </TextInput>
                 </View>
                 <View style={styles.btn}>
-                    <Button title= "START" color='#E05388' onPress={() => navigation.navigate("Home")}/>
+                    <Button title= "START" color='#EC7FA9' onPress={() => navigation.navigate("Home")}/>
                 </View>
                 <View style ={styles.vazio}>
 
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
 
     texto9: {
         marginTop: 100,
-        color: '#E05388',
+        color: '#BE5985',
         fontSize: 55,
         fontWeight: 'bold'
     },
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
         width: 300,
         height: 50,
         fontSize: 30,
-        color:'#E05388'
+        color:'#BE5985'
     },
 
     btn: {
