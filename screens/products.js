@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import {View, Text, StyleSheet, FlatList, Image} from 'react-native';
+import Card from '../components/cards';
 
 export default function Produtos(){
     const [produtos, setProdutos] = useState([
@@ -21,12 +22,11 @@ export default function Produtos(){
         <FlatList
             data={produtos}
             renderItem={({item}) => (
-                <View style={styles.card}>
-                    <Image style={styles.imagens} source={{uri: 
-                        item.imagem}}/>
-                    <Text style={styles.textoProdutos}> {item.nome}</Text>  
-                    <Text style={styles.textoProdutos}> R${item.valor}</Text>  
-                </View>
+            <Card
+            nome={item.nome}
+            valor={item.valor}
+            imagem={item.imagem}
+            />
             )}
             keyExtractor={item => item.id}
         />
@@ -39,30 +39,9 @@ const styles = StyleSheet.create({
         flex: 1,
     },
 
-    card: {
-        padding: 10,
-        margin: 10,
-        backgroundColor: '#FFC6C6',
-        borderRadius: 8,
-        alignItems: 'center',
-    },
-
     texto: {
-        fontSize: 30,
+        fontSize: 36,
         fontWeight: 'bold',
         color: '#BE5985',
     },
-
-    textoProdutos: {
-        fontSize: 20,
-        color: '#BE5985',
-        fontWeight: 'bold',
-    },
-
-    imagens: {
-        width: 200,
-        height: 200,
-        borderRadius: 8,
-    },
-
 })
