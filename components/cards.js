@@ -27,7 +27,6 @@ export default function Card({nome, valor, imagem}) {
                     <TouchableOpacity onPress={Diminuir} style={styles.botao}>
                         <Text style={styles.textoBotao}>-</Text>
                     </TouchableOpacity>
-                    <Text style={styles.quantidade}>{quantidade}</Text>
                     <TouchableOpacity onPress={Aumentar} style={styles.botao}>
                         <Text style={styles.textoBotao}>+</Text>
                     </TouchableOpacity>
