@@ -18,18 +18,22 @@ export default function Card({nome, valor, imagem}) {
     return(
         <View style={styles.card}>
             <Image style={styles.imagens} source={{uri: imagem}} />
-            <Text style={styles.textoProdutos}>{nome}</Text>  
-            <Text style={styles.textoProdutos}>R${valor}</Text>  
 
-            <View style={styles.contador}>
-                <TouchableOpacity onPress={Diminuir} style={styles.botao}>
-                    <Text style={styles.textoBotao}>-</Text>
-                </TouchableOpacity>
-                <Text style={styles.quantidade}>{quantidade}</Text>
-                <TouchableOpacity onPress={Aumentar} style={styles.botao}>
-                    <Text style={styles.textoBotao}>+</Text>
-                </TouchableOpacity>
-            </View>
+            <View style={styles.view}>
+                <Text style={styles.textoProdutos}>{nome}</Text>  
+                <Text style={styles.textoProdutos}>R${valor}</Text>  
+
+                <View style={styles.contador}>
+                    <TouchableOpacity onPress={Diminuir} style={styles.botao}>
+                        <Text style={styles.textoBotao}>-</Text>
+                    </TouchableOpacity>
+                    <Text style={styles.quantidade}>{quantidade}</Text>
+                    <TouchableOpacity onPress={Aumentar} style={styles.botao}>
+                        <Text style={styles.textoBotao}>+</Text>
+                    </TouchableOpacity>
+                </View>
+                    <Text style={styles.textoProdutos}> Carrinho: {quantidade} </Text>
+                </View>
         </View>
     )
 }
@@ -41,6 +45,14 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFC6C6',
         borderRadius: 8,
         alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'row'
+    },
+
+    view: {
+        justifyContent: 'center',
+        flexDirection: 'column',
+        padding: 20
     },
 
     textoProdutos: {
@@ -50,8 +62,8 @@ const styles = StyleSheet.create({
     },
 
     imagens: {
-        width: 200,
-        height: 200,
+        width: 170,
+        height: 170,
         borderRadius: 8,
         borderWidth: 5,
         borderColor: '#BE5985',
