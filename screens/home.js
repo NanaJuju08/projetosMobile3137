@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     },
 
     textinho3: {
-        flex: 1,
+        flex: 2,
         justifyContent: 'center',
         alignItems: 'center',
         paddingStart:10
