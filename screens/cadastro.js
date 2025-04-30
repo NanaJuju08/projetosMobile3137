@@ -2,9 +2,23 @@ import { setStatusBarBackgroundColor } from 'expo-status-bar';
 import {Text, View, StyleSheet, ImageBackground, TextInput, Button} from 'react-native';
 import { useState } from 'react';
 
+import { createUserWithEmailAndPassword} from "firebase/auth";
+
+import { auth } from '../controller';
+
 export default function Cadastro({navigation}) {
     const [senha, setSenha] = useState("");
     const [email, setEmail] = useState("");
+
+    const cadastroUser = () => {
+        createUserWithEmailAndPassword(auth, email, senha).then((userCredential) => {
+            console.log('cadastrado!', userCredential.user.email);
+            navigation.navigate('Login');
+          })
+          .catch((error) => {
+            console.log('Erro', error.message);
+          });
+    }
 
     return (
         <View style={styles.container}>
@@ -23,7 +37,7 @@ export default function Cadastro({navigation}) {
                     </TextInput>
                 </View>
                 <View style={styles.btn}>
-                    <Button title= "CADASTRAR" color='#A7D477' onPress={() => navigation.navigate("Login")}/>
+                    <Button title= "CADASTRAR" color='#A7D477' onPress={cadastroUser}/>
                 </View>
                 <View style ={styles.vazio}>
 

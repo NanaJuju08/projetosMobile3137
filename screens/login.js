@@ -1,8 +1,24 @@
 import { setStatusBarBackgroundColor } from 'expo-status-bar';
 import {Text, View, StyleSheet, ImageBackground, TextInput, Button} from 'react-native';
 import Cadastro from './cadastro';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { useState } from 'react';
+
+import { auth } from '../controller';
 
 export default function Login({navigation}) {
+        const [senha, setSenha] = useState("");
+        const [email, setEmail] = useState("");
+
+        const VerificarUser = () => {
+            signInWithEmailAndPassword(auth, email, senha).then(userCredential => {
+                console.log('Usuário logado!', userCredential.user.email);
+                navigation.navigate('HomeTab');
+            })
+            .catch((error) => {
+                console.log('Erro ao logar', error.message);
+              });
+        }
     return (
         <View style={styles.container}>
             <ImageBackground source={{uri: 'https://i.pinimg.com/736x/de/49/07/de49078b778b376eca74314d7cf2780c.jpg'}} style={{flex: 1}}>
@@ -12,15 +28,15 @@ export default function Login({navigation}) {
                 </View>
                 
                 <View style={styles.usuario}>
-                    <TextInput style={styles.input} placeholder='Nome'>
+                    <TextInput style={styles.input} placeholder='E-mail' value={email} onChangeText={setEmail}>
                     </TextInput>
                 </View>
                 <View style={styles.usuario}>
-                    <TextInput style={styles.input} placeholder='E-mail'>
+                <TextInput style={styles.input} placeholder='Senha' value={senha} onChangeText={setSenha} secureTextEntry={true}>
                     </TextInput>
                 </View>
                 <View style={styles.btn}>
-                    <Button title= "START" color='#EC7FA9' onPress={() => navigation.navigate("HomeTab")}/>
+                    <Button title= "START" color='#EC7FA9' onPress={VerificarUser}/>
                     <Button title= "CADASTRE-SE" color='#A7D477' onPress={() => navigation.navigate("Cadastro")}/>
                 </View>
                 <View style ={styles.vazio}>
