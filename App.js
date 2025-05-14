@@ -10,6 +10,7 @@ import Feed2 from './screens/feed02';
 import Counter from './screens/counter';
 import Produtos from './screens/products';
 import Cadastro from './screens/cadastro';
+import CadastrarProdutos from './screens/cadastrarProdutos';
 
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 
@@ -60,6 +61,12 @@ function BottomTabs() {
         <Tabs.Screen name="Produtos" component={Produtos} options={{
           tabBarIcon: () => (
             <MaterialIcons name="shopping-cart" size={25} color="#A7D477" />
+          )
+        }}/>
+
+        <Tabs.Screen name="Cadastro Produtos" component={CadastrarProdutos} options={{
+          tabBarIcon: () => (
+            <MaterialIcons name="upload" size={25} color="#A7D477" />
           )
         }}/>
       </Tabs.Navigator>
