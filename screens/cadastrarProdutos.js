@@ -1,12 +1,31 @@
 import { useScrollToTop } from '@react-navigation/native';
 import { useState } from 'react';
 import {Text, View, StyleSheet, ImageBackground, TextInput, Button, TouchableOpacity} from 'react-native';
+import { db } from '../controller';
+import { collection, addDoc } from 'firebase/firestore';
 
 
 export default function CadastrarProdutos({navigation}) {
         const [nome, setNome] = useState("");
         const [valor, setValor] = useState("");
         const [imagem, setImagem] = useState("");
+
+        const CadastrarProduto = async () => {
+            try{
+                await addDoc(collection(db, 'produtos'), {
+                    nome,
+                    valor: parseFloat(valor),
+                    imagem
+                });
+
+                setNome('');
+                setImagem(''),
+                setValor('')
+            }
+            catch (error){
+                console.log("Erro ao cadastrar produto!", error)
+            }
+        }
 
     return (
         <View style={styles.container}>
@@ -29,7 +48,7 @@ export default function CadastrarProdutos({navigation}) {
                     </TextInput>
                 </View>
                 <View style={styles.btn}>
-                    <Button title= "CADASTRAR" color='#EC7FA9'/>
+                    <Button title= "CADASTRAR" color='#EC7FA9' onPress={CadastrarProduto}/>
                 </View>
                 <View style ={styles.vazio}>
 
