@@ -2,14 +2,16 @@ import { setStatusBarBackgroundColor } from 'expo-status-bar';
 import {Text, View, StyleSheet, ImageBackground, TextInput, Button} from 'react-native';
 import { useState } from 'react';
 
-import { createUserWithEmailAndPassword} from "firebase/auth";
+import { createUserWithEmailAndPassword} from "firebase/auth"; //Tá na documentação - criação do user com email e senha;
 
-import { auth } from '../controller';
+import { auth } from '../controller'; //Exportando o auth do arquivo controller;
 
 export default function Cadastro({navigation}) {
     const [senha, setSenha] = useState("");
     const [email, setEmail] = useState("");
 
+    //Função do cadastro do usuário, essa função é chamada quando o usuário clica no botão;
+    //O .then((userCredential)) é pra verificar ser o email e a senha estão de acordo com os critérios exigidos firebase, como quantidade de carácteres, etc;
     const cadastroUser = () => {
         createUserWithEmailAndPassword(auth, email, senha).then((userCredential) => {
             console.log('cadastrado!', userCredential.user.email);

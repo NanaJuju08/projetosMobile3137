@@ -1,5 +1,5 @@
 import { setStatusBarBackgroundColor } from 'expo-status-bar';
-import {Text, View, StyleSheet, ImageBackground, TextInput, Button} from 'react-native';
+import {Text, View, StyleSheet, ImageBackground, TextInput, Button, TouchableOpacity} from 'react-native';
 import Cadastro from './cadastro';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useState } from 'react';
@@ -37,7 +37,10 @@ export default function Login({navigation}) {
                 </View>
                 <View style={styles.btn}>
                     <Button title= "START" color='#EC7FA9' onPress={VerificarUser}/>
-                    <Button title= "CADASTRE-SE" color='#A7D477' onPress={() => navigation.navigate("Cadastro")}/>
+                    {/* <Button title= "CADASTRE-SE" color='#A7D477' onPress={() => navigation.navigate("Cadastro")}/> */}
+                    <TouchableOpacity onPress={() => navigation.navigate("Cadastro")}>
+                        <Text style={styles.txt}>Clique para criar uma conta</Text>
+                    </TouchableOpacity>
                 </View>
                 <View style ={styles.vazio}>
 
@@ -89,5 +92,12 @@ const styles = StyleSheet.create({
 
     vazio: {
         flex: 1,
+    },
+
+    txt: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        fontSize: 20,
+        color: '#BE5985',
     }
 })

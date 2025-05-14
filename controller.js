@@ -1,11 +1,9 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-import { getAuth } from "firebase/auth";
+import { initializeApp } from "firebase/app"; //Iniciando o fibase dentro do aplicativo (npm instal - visão geral do projeto, tem todas as informações do pojeto (npm install firebase))
 
-// Your web app's Firebase configuration
+import { getAuth } from "firebase/auth"; //O getAuth é o que controla o authentication, então, a gente importa o Auth para usarmos no nosso projeto (essas informações do getAuth tá na documentação do firebase);
+
+//Chaves de configurações confidenciais necessárias para o projeto funcionar;
 const firebaseConfig = {
   apiKey: "AIzaSyAML5aFAqu0XyP6w_EGjNHg4Vndu-A5oBM",
   authDomain: "aulasm25.firebaseapp.com",
@@ -15,7 +13,7 @@ const firebaseConfig = {
   appId: "1:583827209336:web:c23b8a4a233fa5c4ac018d"
 };
 
-// Initialize Firebase
+//Inicia as ações do firebase;
 const app = initializeApp(firebaseConfig);
 
-export const auth = getAuth(app);
+export const auth = getAuth(app); //Constante do auth para usar nos outros arquivos, por isso o nome "export const auth", ou seja, uma constante exportável;
