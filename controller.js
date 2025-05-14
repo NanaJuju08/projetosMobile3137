@@ -3,6 +3,8 @@ import { initializeApp } from "firebase/app"; //Iniciando o fibase dentro do apl
 
 import { getAuth } from "firebase/auth"; //O getAuth é o que controla o authentication, então, a gente importa o Auth para usarmos no nosso projeto (essas informações do getAuth tá na documentação do firebase);
 
+import { getFirestore } from "firebase/firestore";
+
 //Chaves de configurações confidenciais necessárias para o projeto funcionar;
 const firebaseConfig = {
   apiKey: "AIzaSyAML5aFAqu0XyP6w_EGjNHg4Vndu-A5oBM",
@@ -17,3 +19,5 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 export const auth = getAuth(app); //Constante do auth para usar nos outros arquivos, por isso o nome "export const auth", ou seja, uma constante exportável;
+
+export const db = getFirestore(app);
