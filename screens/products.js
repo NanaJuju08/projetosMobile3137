@@ -45,7 +45,7 @@ export default function Produtos({navigation}){
             imagem={item.imagem}
             comprar={() => {
                 AdicionarProdutos(item);
-                navigation.navigate('carrinho');
+                navigation.navigate('Carrinho');
             }}
             />
             )}
