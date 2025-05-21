@@ -14,7 +14,7 @@ export default function Carrinho({navigation}){
                         <Image style={styles.imagens} source={{uri: item.imagem}} />
                         <View style={styles.view}>
                             <Text style={styles.textoProdutos}>{item.nome}</Text>  
-                            <Text style={styles.textoProdutos}>R{item.valor}</Text>  
+                            <Text style={styles.textoProdutos}>R${item.valor}</Text>  
                         </View>
                     </View>
                 )}
