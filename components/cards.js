@@ -1,38 +1,16 @@
 import React, {useState} from 'react';
-import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, Text, Image, StyleSheet, TouchableOpacity, Button} from 'react-native';
 
-export default function Card({nome, valor, imagem}) {
-    const [quantidade, setQuantidade] = useState(0);
-    const [valorQuatidade, setValorQuantidade] = useState(0);
-
-    function Aumentar(){
-        setQuantidade(quantidade + 1);
-    };
-
-    function Diminuir(){
-        if (quantidade > 0) {
-            setQuantidade(quantidade - 1);
-        }
-    };
-
+export default function Card({nome, valor, imagem, comprar}) {
     return(
         <View style={styles.card}>
             <Image style={styles.imagens} source={{uri: imagem}} />
 
             <View style={styles.view}>
-                <Text style={styles.textoProdutos}>{nome}</Text>  
-                <Text style={styles.textoProdutos}>R${valor}</Text>  
-
-                <View style={styles.contador}>
-                    <TouchableOpacity onPress={Diminuir} style={styles.botao}>
-                        <Text style={styles.textoBotao}>-</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={Aumentar} style={styles.botao}>
-                        <Text style={styles.textoBotao}>+</Text>
-                    </TouchableOpacity>
-                </View>
-                    <Text style={styles.textoProdutos}> Carrinho: {quantidade} </Text>
-                </View>
+                    <Text style={styles.textoProdutos}>{nome}</Text>  
+                    <Text style={styles.textoProdutos}>R${valor}</Text>  
+                    <Button title='Comprar' onPress={comprar} color='#BE5985'/>
+            </View>
         </View>
     )
 }

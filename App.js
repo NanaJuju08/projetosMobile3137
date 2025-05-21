@@ -2,6 +2,7 @@ import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { ProviderCart } from './components/providerCart';
 
 import Login from './screens/login';
 import Home from './screens/home';
@@ -77,13 +78,14 @@ export default function App() {
   const Stack = createStackNavigator();
 
   return (
+    <ProviderCart>
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name='Login' component={Login}/>
-        <Stack.Screen name='Cadastro' component={Cadastro}/>
-        <Stack.Screen options={{headerShown: false}} name='HomeTab' component={BottomTabs}/>
-
-      </Stack.Navigator>
-    </NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name='Login' component={Login}/>
+          <Stack.Screen name='Cadastro' component={Cadastro}/>
+          <Stack.Screen options={{headerShown: false}} name='HomeTab' component={BottomTabs}/>
+        </Stack.Navigator>
+      </NavigationContainer>
+    </ProviderCart>
   );
 }

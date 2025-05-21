@@ -3,8 +3,9 @@ import {View, Text, StyleSheet, FlatList, Image} from 'react-native';
 import Card from '../components/cards';
 import { db } from '../controller';
 import { collection, getDocs } from 'firebase/firestore';
+import { useCarrinho } from '../components/providerCart';
 
-export default function Produtos(){
+export default function Produtos({navigation}){
     const [produtos, setProdutos] = useState([]);
 
     useEffect(() => {
@@ -41,6 +42,10 @@ export default function Produtos(){
             nome={item.nome}
             valor={item.valor}
             imagem={item.imagem}
+            comprar={() => {
+                AdicionarProdutos(item);
+                navigation.navigate('carrinho');
+            }}
             />
             )}
             keyExtractor={item => item.id}
