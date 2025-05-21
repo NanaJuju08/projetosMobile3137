@@ -6,27 +6,26 @@ export default function Home() {
             <ImageBackground source={{uri: 'https://i.pinimg.com/736x/b9/3e/9e/b93e9eed2c81ab577ec95abbf5161baa.jpg'}} style={{flex: 1}}>
 
                 <View style={styles.textinho1}>
-                    <Text style={styles.texto}>MINSUNG'S DOCERIA</Text>
-
+                    <Text style={styles.texto}>MINSUNG'S STORE</Text>
                 </View>
 
                 <View style={styles.imagens}>
-                <Image style={styles.img} source={{uri: 'https://i.pinimg.com/236x/02/10/f0/0210f0d02e0f6631106e7f60a848e500.jpg'}} />
+                <Image style={styles.img} source={{uri: 'https://i.pinimg.com/736x/1d/6f/8e/1d6f8e10c7ba976f3472314ac36d4e0d.jpg'}} />
 
-                <Image style={styles.img} source={{uri: 'https://i.pinimg.com/236x/e1/26/8f/e1268f57e7e3695504e187892c6a0699.jpg'}} />
+                <Image style={styles.img} source={{uri: 'https://i.pinimg.com/736x/60/6d/b9/606db97d2d762b5c5a079c02b8cff76e.jpg'}} />
                 </View>
 
                 <View style={styles.textinho2}>
-                    <Text style={styles.texto2}>Os melhores doces da região!!</Text>
+                    <Text style={styles.texto2}>As melhores roupas da região!!</Text>
                 </View>
                 <View style={styles.textinho3}>
-                    <Text style={styles.texto3}>A Minsung's doceria é a melhor da cidade, com doces feitos com carinho e dedicação</Text>
+                    <Text style={styles.texto3}>A Minsung's store é a melhor da cidade, com roupas personalizadas com carinho!!</Text>
                 </View>
 
                 <View style={styles.imagens}>
-                <Image style={styles.img} source={{uri: 'https://i.pinimg.com/236x/2e/aa/2f/2eaa2f39ae6fd964c1a9bd0723934e6c.jpg'}} />
+                <Image style={styles.img} source={{uri: 'https://i.pinimg.com/736x/ef/68/69/ef6869bb32083642512eca78fff6079c.jpg'}} />
 
-                <Image style={styles.img} source={{uri: 'https://i.pinimg.com/236x/02/75/49/027549e653c296b6b7ef881f8e0c023a.jpg'}} />
+                <Image style={styles.img} source={{uri: 'https://i.pinimg.com/736x/6a/a5/57/6aa557c0d066ee7383c93e77bc89cd4e.jpg'}} />
                 </View>
 
                 <View style={styles.credicts}> 

@@ -12,6 +12,7 @@ import Counter from './screens/counter';
 import Produtos from './screens/products';
 import Cadastro from './screens/cadastro';
 import CadastrarProdutos from './screens/cadastrarProdutos';
+import Carrinho from './screens/carrinho';
 
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 
@@ -68,6 +69,12 @@ function BottomTabs() {
         <Tabs.Screen name="Cadastro Produtos" component={CadastrarProdutos} options={{
           tabBarIcon: () => (
             <MaterialIcons name="upload" size={25} color="#A7D477" />
+          )
+        }}/>
+
+        <Tabs.Screen name="Carrinho" component={Carrinho} options={{
+          tabBarIcon: () => (
+            <MaterialIcons name="shopping-cart-checkout" size={25} color="#A7D477" />
           )
         }}/>
       </Tabs.Navigator>

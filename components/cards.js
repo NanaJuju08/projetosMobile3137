@@ -9,7 +9,7 @@ export default function Card({nome, valor, imagem, comprar}) {
             <View style={styles.view}>
                     <Text style={styles.textoProdutos}>{nome}</Text>  
                     <Text style={styles.textoProdutos}>R${valor}</Text>  
-                    <Button title='Comprar' onPress={comprar} color='#BE5985'/>
+                    <Button title='Adicionar ao carrinho' onPress={comprar} color='#BE5985'/>
             </View>
         </View>
     )
