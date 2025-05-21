@@ -1,26 +1,26 @@
-import {Text, View, StyleSheet, ImageBackground, Image, FlatList} from 'react-native';
+import {Text, View, StyleSheet, ImageBackground, Image, FlatList, ScrollView} from 'react-native';
 import { useCarrinho } from '../components/providerCart';
 
 export default function Carrinho({navigation}){
     const {carrinho} = useCarrinho();
     return(
-        <View style={styles.container}>
-            <Text style={styles.texto}>Carrinho</Text>
-            <FlatList 
-            data={carrinho}
-            renderItem={({item}) => (
-                <View style={styles.card}>
-                    <Image style={styles.imagens} source={{uri: item.imagem}} />
-                    <View style={styles.view}>
-                        <Text style={styles.textoProdutos}>{item.nome}</Text>  
-                        <Text style={styles.textoProdutos}>R{item.valor}</Text>  
+        <ScrollView>
+            <View style={styles.container}>
+                <Text style={styles.texto}>Carrinho</Text>
+                <FlatList 
+                data={carrinho}
+                renderItem={({item}) => (
+                    <View style={styles.card}>
+                        <Image style={styles.imagens} source={{uri: item.imagem}} />
+                        <View style={styles.view}>
+                            <Text style={styles.textoProdutos}>{item.nome}</Text>  
+                            <Text style={styles.textoProdutos}>R{item.valor}</Text>  
+                        </View>
                     </View>
-                </View>
-            )}
-            />
-            
-
-        </View>
+                )}
+                />
+            </View>
+        </ScrollView>
     )
 }
 
