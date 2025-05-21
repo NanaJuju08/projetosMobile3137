@@ -7,6 +7,7 @@ import { useCarrinho } from '../components/providerCart';
 
 export default function Produtos({navigation}){
     const [produtos, setProdutos] = useState([]);
+    const {AdicionarProdutos} = useCarrinho();
 
     useEffect(() => {
         async function carregarProdutos() {
