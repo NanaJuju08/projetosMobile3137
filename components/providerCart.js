@@ -1,4 +1,7 @@
 import { createContext, useContext, useState } from "react";
+import {db, Auth} from '../controller';
+import { doc, setDoc, getDoc } from "firebase/firestore";
+import { onAuthStateChanged } from "firebase/auth";
 
 const CarrinhoContext = createContext();
 
