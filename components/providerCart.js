@@ -1,15 +1,14 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import {db, auth} from '../controller';
+import {db, auth} from '../controller'; 
 import { doc, setDoc, getDoc } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
-import { ArraySchema } from "firebase/vertexai";
 
 const CarrinhoContext = createContext();
 
 export function ProviderCart({children}) {
 
     const [carrinho, setCarrinho] = useState([]);
-    const [usuario, setUsuario] = useState([]);
+    const [usuario, setUsuario] = useState(null);
     const [carregandoCarrinho, setCarregandoCarrinho] = useState(true);
 
 
@@ -25,7 +24,7 @@ export function ProviderCart({children}) {
 
                     if(docSnap.exists()){
                         const dados = docSnap.data();
-                        setCarrinho(Array.isArray(dados.produtos)? dados.produtos: [])
+                        setCarrinho(Array.isArray(dados.produtos) ? dados.produtos : []);
                     }
                     else {
                         setCarrinho([]);
@@ -35,12 +34,9 @@ export function ProviderCart({children}) {
                     console.log('Erro no carrinho', error);
                     setCarrinho([]);
                 }
-            }
-
-            else {
+            } else {
                 setCarrinho([]);
             }
-
             setCarregandoCarrinho(false);
         })
         return() => unsubscribe();
@@ -53,7 +49,7 @@ export function ProviderCart({children}) {
             }
             
             try {
-                const docRef = doc(db, 'carrinhos'. usuario.uid);
+                const docRef = doc(db, 'carrinhos', usuario.uid);
                 await setDoc(docRef, {produtos:lista})
             }
 
@@ -66,11 +62,25 @@ export function ProviderCart({children}) {
     }, [carrinho, usuario, carregandoCarrinho]);
 
     function AdicionarProdutos(produto){
-        setCarrinho((anterior) => [...anterior, produto]) 
+        setCarrinho((anterior) => Array.isArray(anterior) ? [...anterior, produto] : [produto]) 
+    }
+
+    function RemoverProdutos(index){
+        const novaLista = []
+
+        setCarrinho((estadoAnterior) => {
+            for (let i = 0; i < estadoAnterior.length; i++)
+            {
+                if (i !== index){
+                    novaLista.push(estadoAnterior[i])
+                }
+            }
+            return novaLista;
+        })
     }
 
     return(
-        <CarrinhoContext.Provider value= {{carrinho, AdicionarProdutos}}>
+        <CarrinhoContext.Provider value= {{carrinho, AdicionarProdutos, RemoverProdutos}}>
             {children}
         </CarrinhoContext.Provider> 
     )

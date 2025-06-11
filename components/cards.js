@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {View, Text, Image, StyleSheet, TouchableOpacity, Button} from 'react-native';
 
-export default function Card({nome, valor, imagem, comprar}) {
+export default function Card({nome, valor, imagem, comprar, remover}) {
     return(
         <View style={styles.card}>
             <Image style={styles.imagens} source={{uri: imagem}} />
@@ -10,6 +10,7 @@ export default function Card({nome, valor, imagem, comprar}) {
                     <Text style={styles.textoProdutos}>{nome}</Text>  
                     <Text style={styles.textoProdutos}>R${valor}</Text>  
                     {comprar && <Button title='Adicionar ao carrinho' onPress={comprar} color='#BE5985'/>}
+                    {remover && <Button title='Remover' onPress={remover} color='#BE5985'/>}
             </View>
         </View>
     )
